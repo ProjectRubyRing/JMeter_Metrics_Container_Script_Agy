@@ -1,0 +1,20 @@
+# ==============================================================================
+# [0] JMeter Performance Test Mode Startup Configuration & Evidence
+# METRICS_LOG_PATH: /mnt/logs/front/logs/intra-web/mid/current/00_perf_metrics_startup_env.txt
+# METRICS_REAL_PATH: /c/Users/taka_/Agy/JMeter_Metrics_Container_Script_Agy/tests/sample_output/mnt/logs/front/logs/intra-web/mid/current/00_perf_metrics_startup_env.txt
+# CONTAINER_ROLE: front
+# COMPONENT_NAME: front
+# SERVICE_NAME: intra-web
+# TASK_LOG_ID: 20261024223849-perf
+# INTERVAL_SECONDS: 1
+# GENERATED_AT_JST: 2026-10-24 13:38:49
+# ==============================================================================
+ENABLE_PERF_METRICS=true
+CONTAINER_ROLE=front
+COMPONENT_NAME=front
+SERVICE_NAME=intra-web
+TASK_LOG_ID=20261024223849-perf
+INTERVAL_SECONDS=1
+LOGICAL_CURRENT_DIR=/mnt/logs/front/logs/intra-web/mid/current
+PHYSICAL_WRITE_DIR=/c/Users/taka_/Agy/JMeter_Metrics_Container_Script_Agy/tests/sample_output/mnt/logs/front/logs/intra-web/mid/current
+JAVA_OPTS=-Xms2048m -Xmx2048m -XX:-PerfDisableSharedMem -XX:+StartAttachListener -Djava.io.tmpdir=/tmp -XX:NativeMemoryTracking=summary -XX:FlightRecorderOptions=repository=/tmp/jfr-repo -XX:StartFlightRecording=name=perf-continuous,settings=profile,disk=true,maxage=1h,maxsize=250M,dumponexit=true,filename=/c/Users/taka_/Agy/JMeter_Metrics_Container_Script_Agy/tests/sample_output/mnt/logs/front/logs/intra-web/mid/current/02_flight_recording.jfr

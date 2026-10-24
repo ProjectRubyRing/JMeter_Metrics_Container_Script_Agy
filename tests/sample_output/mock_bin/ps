@@ -1,0 +1,13 @@
+#!/usr/bin/env bash
+ARGS="$*"
+if echo "$ARGS" | grep -q "min_flt"; then
+  echo "4820 0"
+else
+  cat << 'OUT'
+12345 12381   0 28.5 29.8 Rl   -                        00:00:14 default task-3
+12345 12382   1 19.2 29.8 Rl   -                        00:00:11 default task-7
+12345 12355   0  6.4 29.8 Sl   futex_wait_queue_me      00:00:04 G1 Conc#0
+12345 12360   1  4.1 29.8 Sl   futex_wait_queue_me      00:00:03 C2 CompilerThre
+12345 12370   0  2.8 29.8 Sl   ep_poll                  00:00:02 default I/O-2
+OUT
+fi

@@ -1,0 +1,14 @@
+# ==============================================================================
+# [1] JBoss EAP 8.1 jboss-cli DB Connection Pool & Runtime Statistics
+# METRICS_LOG_PATH: /mnt/logs/front/logs/intra-web/mid/current/01_jboss_cli_stats.tsv
+# METRICS_REAL_PATH: /c/Users/taka_/Agy/JMeter_Metrics_Container_Script_Agy/tests/sample_output/mnt/logs/front/logs/intra-web/mid/current/01_jboss_cli_stats.tsv
+# CONTAINER_ROLE: front
+# COMPONENT_NAME: front
+# SERVICE_NAME: intra-web
+# TASK_LOG_ID: 20261024223849-perf
+# INTERVAL_SECONDS: 1
+# GENERATED_AT_JST: 2026-10-24 13:38:50
+# ==============================================================================
+Timestamp_JST	Container	Service	Task_LogID	Datasource_Name	DS_Type	MaxPoolSize	ActiveCount	InUseCount	AvailableCount	PoolUsage_Pct	MaxUsedCount	WaitCount	MaxWaitTime_ms	TimedOut	TotalBlockingTime_ms	AvgCreationTime_ms	DestroyedCount	PrepStmtCache_HitCnt	PrepStmtCache_MissCnt	Undertow_ReqCount	Undertow_ErrCount	Undertow_MaxProcTime_ms	Undertow_ProcTime_ms	Worker_BusyThreads	Worker_MaxThreads	Worker_QueueSize	Worker_Rejected	JTA_TotalTx	JTA_CommittedTx	JTA_AbortedTx	JTA_TimedOutTx	JTA_InFlightTx	JTA_Heuristics	Status_Eval
+2026-10-24 13:38:51	front	intra-web	20261024223849-perf	MySQLXADS	XA-DataSource	32	20	8	12	25.0	16	0	12	0	24	15	0	1335	85	1250	2	340	48200	6	32	0	0	984	980	1	0	3	0	NORMAL
+2026-10-24 13:38:55	front	intra-web	20261024223849-perf	MySQLXADS	XA-DataSource	32	20	8	12	25.0	16	0	12	0	24	15	0	1335	85	1250	2	340	48200	6	32	0	0	984	980	1	0	3	0	NORMAL

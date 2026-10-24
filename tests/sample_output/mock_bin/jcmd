@@ -1,0 +1,79 @@
+#!/usr/bin/env bash
+if [ $# -eq 0 ]; then
+  echo "12345 /opt/jboss-eap/jboss-modules.jar -mp /opt/jboss-eap/modules org.jboss.as.standalone"
+  exit 0
+fi
+PID="$1"
+shift
+CMD="$*"
+case "$CMD" in
+  *GC.heap_info*)
+    cat << 'OUT'
+12345:
+ garbage-first heap   total 2097152K, used 878592K [0x0000000780000000, 0x0000000800000000)
+  region size 1024K, 328 young (335872K), 24 survivors (24576K)
+ Metaspace       used 128450K, committed 135168K, reserved 1179648K
+  class space    used 14820K, committed 16384K, reserved 1048576K
+OUT
+    ;;
+  *VM.native_memory*)
+    cat << 'OUT'
+12345:
+Native Memory Tracking:
+Total: reserved=3845120KB, committed=2412544KB
+-                 Java Heap (reserved=2097152KB, committed=2097152KB)
+                            (mmap: reserved=2097152KB, committed=2097152KB)
+-                     Class (reserved=1064960KB, committed=16384KB)
+-                    Thread (reserved=148480KB, committed=148480KB)
+                            (thread #142)
+-                      Code (reserved=253952KB, committed=68420KB)
+-                        GC (reserved=112640KB, committed=94208KB)
+OUT
+    ;;
+  *Compiler.codecache*)
+    cat << 'OUT'
+12345:
+CodeCache: size=245760Kb used=66810Kb max_used=67120Kb free=178950Kb
+ bounds [0x00007f8a10000000, 0x00007f8a1f000000, 0x00007f8a1f000000]
+ total_blobs=15420 nmethods=14110 adapters=1210
+ compilation: enabled
+OUT
+    ;;
+  *JFR.check*)
+    cat << 'OUT'
+12345:
+Recording 1: name=perf-continuous maxsize=250.0MB maxage=2h (running)
+OUT
+    ;;
+  *JFR.dump*)
+    # Extract filename=...
+    FILE_ARG="$(echo "$CMD" | sed -n 's/.*filename=\([^ ]*\).*/\1/p')"
+    if [ -n "$FILE_ARG" ]; then
+      echo "MOCK_JFR_BINARY_RECORDING_HEADER_OPENJDK21" > "$FILE_ARG"
+    fi
+    echo "12345:"
+    echo "Dumped recording \"perf-continuous\", 4.2 MB written to:"
+    echo "${FILE_ARG}"
+    ;;
+  *VM.flags*)
+    cat << 'OUT'
+12345:
+-XX:ActiveProcessorCount=2 -XX:CICompilerCount=2 -XX:ConcGCThreads=1 -XX:G1HeapRegionSize=1048576 -XX:InitialHeapSize=2147483648 -XX:MaxHeapSize=2147483648 -XX:MaxNewSize=1287651328 -XX:MinHeapDeltaBytes=1048576 -XX:NativeMemoryTracking=summary -XX:NonNMethodCodeHeapSize=5825164 -XX:NonProfiledCodeHeapSize=122916538 -XX:ParallelGCThreads=2 -XX:-PerfDisableSharedMem -XX:ProfiledCodeHeapSize=122916538 -XX:ReservedCodeCacheSize=251658240 -XX:+SegmentedCodeCache -XX:+StartAttachListener -XX:+UseCompressedClassPointers -XX:+UseCompressedOops -XX:+UseG1GC
+OUT
+    ;;
+  *VM.info*)
+    cat << 'OUT'
+12345:
+# JRE version: OpenJDK Runtime Environment (Red_Hat-21.0.5.0.11-1) (21.0.5+11-LTS) (build 21.0.5+11-LTS)
+# Java VM: OpenJDK 64-Bit Server VM (Red_Hat-21.0.5.0.11-1) (21.0.5+11-LTS, mixed mode, sharing, tiered, compressed oops, compressed class ptrs, g1 gc, linux-amd64)
+container (cgroup) information:
+container_type: cgroupv2
+cpu_cpuset_cpus: 0-7
+cpu_memory_nodes: 0
+active_processor_count: 2
+cpu_quota: 200000
+cpu_period: 100000
+cpu_shares: 1024
+OUT
+    ;;
+esac

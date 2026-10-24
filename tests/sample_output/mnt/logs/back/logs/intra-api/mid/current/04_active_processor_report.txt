@@ -1,0 +1,29 @@
+# ==============================================================================
+# [4] -XX:ActiveProcessorCount Necessity Diagnostic Report
+# METRICS_LOG_PATH: /mnt/logs/back/logs/intra-api/mid/current/04_active_processor_report.txt
+# METRICS_REAL_PATH: /c/Users/taka_/Agy/JMeter_Metrics_Container_Script_Agy/tests/sample_output/mnt/logs/back/logs/intra-api/mid/current/04_active_processor_report.txt
+# CONTAINER_ROLE: back
+# COMPONENT_NAME: back
+# SERVICE_NAME: intra-api
+# TASK_LOG_ID: 20261024223859-perf
+# INTERVAL_SECONDS: 1
+# GENERATED_AT_JST: 2026-10-24 13:39:00
+# ==============================================================================
+--------------------------------------------------------------------------------
+[2026-10-24 13:39:01] ActiveProcessorCount Diagnostic Snapshot (Container=back, Service=intra-api)
+  - Host / Task / Container CPU : Host=12 cores | Task=2048 units | Container=768 units (Co-located=4 containers)
+  - cgroup (v2) Limit          : quota=max us / period=100000 us -> Effective=0.75 vCPU (weight/shares=100)
+  - JVM Processor Recognition   : ExplicitFlag=2 | Recognized=2 cores
+  - Derived JVM/JBoss Threads   : ParallelGC=2 | ConcGC=1 | JIT=2 | ForkJoin=1 | UndertowIO=4 | UndertowWorker=32
+  - CFS Throttling Telemetry    : nr_periods=0 (+0) | nr_throttled=0 (+0) | ThrottleRate=0.00% | ThrottledTime=0.0ms (+0.0ms)
+  - Recommended Flag & Verdict  : -XX:ActiveProcessorCount=1  => [OPTIMAL_OK]
+  - Diagnosis Reason            : OpenJDK21が実効vCPU(0.75)と整合する2コアを認識しCFSスロットリング率0.0%で安定稼働中(現行設定で適正)
+--------------------------------------------------------------------------------
+[2026-10-24 13:39:05] ActiveProcessorCount Diagnostic Snapshot (Container=back, Service=intra-api)
+  - Host / Task / Container CPU : Host=12 cores | Task=2048 units | Container=768 units (Co-located=4 containers)
+  - cgroup (v2) Limit          : quota=max us / period=100000 us -> Effective=0.75 vCPU (weight/shares=100)
+  - JVM Processor Recognition   : ExplicitFlag=2 | Recognized=2 cores
+  - Derived JVM/JBoss Threads   : ParallelGC=2 | ConcGC=1 | JIT=2 | ForkJoin=1 | UndertowIO=4 | UndertowWorker=32
+  - CFS Throttling Telemetry    : nr_periods=0 (+0) | nr_throttled=0 (+0) | ThrottleRate=0.00% | ThrottledTime=0.0ms (+0.0ms)
+  - Recommended Flag & Verdict  : -XX:ActiveProcessorCount=1  => [OPTIMAL_OK]
+  - Diagnosis Reason            : OpenJDK21が実効vCPU(0.75)と整合する2コアを認識しCFSスロットリング率0.0%で安定稼働中(現行設定で適正)

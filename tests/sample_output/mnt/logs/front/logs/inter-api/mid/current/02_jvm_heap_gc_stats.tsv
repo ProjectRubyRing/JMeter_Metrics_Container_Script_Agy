@@ -1,0 +1,14 @@
+# ==============================================================================
+# [2] OpenJDK 21 jstat / jcmd / JFR Heap & GC Statistics
+# METRICS_LOG_PATH: /mnt/logs/front/logs/inter-api/mid/current/02_jvm_heap_gc_stats.tsv
+# METRICS_REAL_PATH: /c/Users/taka_/Agy/JMeter_Metrics_Container_Script_Agy/tests/sample_output/mnt/logs/front/logs/inter-api/mid/current/02_jvm_heap_gc_stats.tsv
+# CONTAINER_ROLE: front
+# COMPONENT_NAME: front
+# SERVICE_NAME: inter-api
+# TASK_LOG_ID: 20261024223909-perf
+# INTERVAL_SECONDS: 1
+# GENERATED_AT_JST: 2026-10-24 13:39:10
+# ==============================================================================
+Timestamp_JST	Container	Service	PID	S0_Pct	S1_Pct	Eden_Pct	Old_Pct	Metaspace_Pct	CCS_Pct	Eden_Used_KB	Eden_Cap_KB	Survivor_Used_KB	Old_Used_KB	Old_Cap_KB	Metaspace_Used_KB	Metaspace_Cap_KB	YGC_Count	Delta_YGC	YGCT_s	FGC_Count	Delta_FGC	FGCT_s	CGC_Count	CGCT_s	GCT_Total_s	Delta_GCT_ms	Last_GC_Cause	Curr_GC_Cause	Classes_Loaded	JIT_Compiled	CodeCache_Used_KB	CodeCache_Max_KB	NMT_Total_Committed_KB	JFR_State	JFR_Size_KB	Status_Eval
+2026-10-24 13:39:11	front	inter-api	12345	0.0	100.0	50.0	37.4	95.0	90.5	311296	622592	24576	542720	1449984	128450	135168	42	0	0.385	0	0	0.000	12	0.045	0.430	0.0	G1 Evacuation Pause	No GC	18450	14280	67120	245760	2412544	RUNNING	0	WARN
+2026-10-24 13:39:15	front	inter-api	12345	0.0	100.0	50.0	37.4	95.0	90.5	311296	622592	24576	542720	1449984	128450	135168	42	0	0.385	0	0	0.000	12	0.045	0.430	0.0	G1 Evacuation Pause	No GC	18450	14280	67120	245760	2412544	RUNNING	0	WARN

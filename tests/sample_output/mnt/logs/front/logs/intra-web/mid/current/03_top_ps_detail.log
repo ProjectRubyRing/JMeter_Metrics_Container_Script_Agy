@@ -1,0 +1,55 @@
+# ==============================================================================
+# [3] UBI 9.8 top -H & ps -L Thread Snapshot Log
+# METRICS_LOG_PATH: /mnt/logs/front/logs/intra-web/mid/current/03_top_ps_detail.log
+# METRICS_REAL_PATH: /c/Users/taka_/Agy/JMeter_Metrics_Container_Script_Agy/tests/sample_output/mnt/logs/front/logs/intra-web/mid/current/03_top_ps_detail.log
+# CONTAINER_ROLE: front
+# COMPONENT_NAME: front
+# SERVICE_NAME: intra-web
+# TASK_LOG_ID: 20261024223849-perf
+# INTERVAL_SECONDS: 1
+# GENERATED_AT_JST: 2026-10-24 13:38:50
+# ==============================================================================
+================================================================================
+[2026-10-24 13:38:51] PID=12345 Thread & Process Snapshot (top -H / ps -L)
+--- [top -H -b -n 1 -p 12345] ---
+top - 22:15:10 up 14 days,  3:22,  0 users,  load average: 1.42, 1.18, 0.95
+Threads: 145 total,   2 running, 143 sleeping,   0 stopped,   0 zombie
+%Cpu(s): 34.2 us,  4.8 sy,  0.0 ni, 59.5 id,  0.2 wa,  0.0 hi,  1.3 si,  0.0 st
+MiB Mem :   7982.4 total,   2140.2 free,   3120.8 used,   2721.4 buff/cache
+MiB Swap:      0.0 total,      0.0 free,      0.0 used.   4512.0 avail Mem
+
+    PID USER      PR  NI    VIRT    RES    SHR S  %CPU  %MEM     TIME+ COMMAND
+  12381 jboss     20   0 4825120   2.3g  32400 R  28.5  29.8   0:14.22 default task-3
+  12382 jboss     20   0 4825120   2.3g  32400 R  19.2  29.8   0:11.05 default task-7
+  12355 jboss     20   0 4825120   2.3g  32400 S   6.4  29.8   0:04.18 G1 Conc#0
+  12360 jboss     20   0 4825120   2.3g  32400 S   4.1  29.8   0:03.90 C2 CompilerThre
+  12370 jboss     20   0 4825120   2.3g  32400 S   2.8  29.8   0:02.15 default I/O-2
+--- [ps -L -p 12345 (Top 25 Threads by %CPU & Wait Channel)] ---
+   PID    LWP PSR %CPU %MEM STAT WCHAN                    TIME     COMMAND
+12345 12381   0 28.5 29.8 Rl   -                        00:00:14 default task-3
+12345 12382   1 19.2 29.8 Rl   -                        00:00:11 default task-7
+12345 12355   0  6.4 29.8 Sl   futex_wait_queue_me      00:00:04 G1 Conc#0
+12345 12360   1  4.1 29.8 Sl   futex_wait_queue_me      00:00:03 C2 CompilerThre
+12345 12370   0  2.8 29.8 Sl   ep_poll                  00:00:02 default I/O-2
+================================================================================
+[2026-10-24 13:38:55] PID=12345 Thread & Process Snapshot (top -H / ps -L)
+--- [top -H -b -n 1 -p 12345] ---
+top - 22:15:10 up 14 days,  3:22,  0 users,  load average: 1.42, 1.18, 0.95
+Threads: 145 total,   2 running, 143 sleeping,   0 stopped,   0 zombie
+%Cpu(s): 34.2 us,  4.8 sy,  0.0 ni, 59.5 id,  0.2 wa,  0.0 hi,  1.3 si,  0.0 st
+MiB Mem :   7982.4 total,   2140.2 free,   3120.8 used,   2721.4 buff/cache
+MiB Swap:      0.0 total,      0.0 free,      0.0 used.   4512.0 avail Mem
+
+    PID USER      PR  NI    VIRT    RES    SHR S  %CPU  %MEM     TIME+ COMMAND
+  12381 jboss     20   0 4825120   2.3g  32400 R  28.5  29.8   0:14.22 default task-3
+  12382 jboss     20   0 4825120   2.3g  32400 R  19.2  29.8   0:11.05 default task-7
+  12355 jboss     20   0 4825120   2.3g  32400 S   6.4  29.8   0:04.18 G1 Conc#0
+  12360 jboss     20   0 4825120   2.3g  32400 S   4.1  29.8   0:03.90 C2 CompilerThre
+  12370 jboss     20   0 4825120   2.3g  32400 S   2.8  29.8   0:02.15 default I/O-2
+--- [ps -L -p 12345 (Top 25 Threads by %CPU & Wait Channel)] ---
+   PID    LWP PSR %CPU %MEM STAT WCHAN                    TIME     COMMAND
+12345 12381   0 28.5 29.8 Rl   -                        00:00:14 default task-3
+12345 12382   1 19.2 29.8 Rl   -                        00:00:11 default task-7
+12345 12355   0  6.4 29.8 Sl   futex_wait_queue_me      00:00:04 G1 Conc#0
+12345 12360   1  4.1 29.8 Sl   futex_wait_queue_me      00:00:03 C2 CompilerThre
+12345 12370   0  2.8 29.8 Sl   ep_poll                  00:00:02 default I/O-2

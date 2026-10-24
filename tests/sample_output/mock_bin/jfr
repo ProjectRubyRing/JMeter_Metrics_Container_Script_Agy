@@ -1,0 +1,18 @@
+#!/usr/bin/env bash
+cat << 'OUT'
+ Version: 2.1
+ Chunks: 1
+ Start: 2026-10-24 13:00:00 (UTC)
+ Duration: 30 s
+
+ Event Type                              Count  Size (bytes)
+=============================================================
+ jdk.ObjectAllocationSample               4210        134720
+ jdk.ExecutionSample                      1850         44400
+ jdk.G1GarbageCollection                    12           480
+ jdk.GCPhasePause                           48          1920
+ jdk.CPUInformation                          1           312
+ jdk.ContainerConfiguration                  1           256
+ jdk.ContainerCPUUsage                      30          1440
+ jdk.ContainerCPUThrottling                 30          1200
+OUT

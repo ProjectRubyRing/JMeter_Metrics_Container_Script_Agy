@@ -1,0 +1,20 @@
+#!/usr/bin/env bash
+ARGS="$*"
+case "$ARGS" in
+  *-gccause*)
+    echo "  S0     S1     E      O      M     CCS    YGC     YGCT    FGC    FGCT    CGC    CGCT     GCT    LGCC                 GCC                 "
+    echo "  0.00 100.00  50.00  37.43  95.03  90.46     42    0.385     0    0.000    12    0.045    0.430 G1 Evacuation Pause  No GC               "
+    ;;
+  *-gc*)
+    echo " S0C    S1C    S0U    S1U      EC       EU        OC         OU       MC     MU    CCSC   CCSU   YGC     YGCT    FGC    FGCT    CGC    CGCT     GCT   "
+    echo " 0.0   24576.0  0.0   24576.0 622592.0 311296.0 1449984.0   542720.0  135168.0 128450.2 16384.0 14820.5     42    0.385     0    0.000    12    0.045    0.430"
+    ;;
+  *-class*)
+    echo "Loaded  Bytes  Unloaded  Bytes     Time   "
+    echo " 18450 36240.5       12    18.4       8.42"
+    ;;
+  *-compiler*)
+    echo "Compiled Failed Invalid   Time   FailedType FailedMethod"
+    echo "   14280      0       0    19.85          0             "
+    ;;
+esac

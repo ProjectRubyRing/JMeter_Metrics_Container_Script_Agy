@@ -1,0 +1,110 @@
+{
+  "family": "webapp9m-intra-web-task",
+  "networkMode": "awsvpc",
+  "requiresCompatibilities": ["FARGATE"],
+  "cpu": "2048",
+  "memory": "8192",
+  "executionRoleArn": "arn:aws:iam::123456789012:role/ecsTaskExecutionRole",
+  "taskRoleArn": "arn:aws:iam::123456789012:role/ecsWebappTaskRole",
+  "runtimePlatform": {
+    "cpuArchitecture": "X86_64",
+    "operatingSystemFamily": "LINUX"
+  },
+  "volumes": [
+    {
+      "name": "efs-logs",
+      "efsVolumeConfiguration": {
+        "fileSystemId": "fs-0123456789abcdef0",
+        "rootDirectory": "/",
+        "transitEncryption": "ENABLED",
+        "authorizationConfig": {
+          "accessPointId": "fsap-0123456789abcdef0",
+          "iam": "ENABLED"
+        }
+      }
+    },
+    {
+      "name": "tmp-front"
+    },
+    {
+      "name": "tmp-back"
+    }
+  ],
+  "containerDefinitions": [
+    {
+      "name": "front",
+      "image": "123456789012.dkr.ecr.ap-northeast-1.amazonaws.com/webapp9m-front:perf-test",
+      "cpu": 768,
+      "memory": 3072,
+      "essential": true,
+      "readonlyRootFilesystem": true,
+      "entryPoint": ["/usr/local/bin/efs-entrypoint.sh"],
+      "command": ["eap"],
+      "portMappings": [
+        {
+          "containerPort": 8080,
+          "protocol": "tcp"
+        }
+      ],
+      "environment": [
+        { "name": "Service_Name", "value": "intra-web" },
+        { "name": "Component_name", "value": "front" },
+        { "name": "ROLE", "value": "front" },
+        { "name": "SERVER_CONFIG", "value": "standalone.xml" },
+        { "name": "ENABLE_PERF_METRICS", "value": "true" },
+        { "name": "PERF_METRICS_INTERVAL", "value": "10" },
+        { "name": "JBOSS_SERVER_OPTS", "value": "-XX:ActiveProcessorCount=1" }
+      ],
+      "mountPoints": [
+        {
+          "sourceVolume": "efs-logs",
+          "containerPath": "/mnt/logs",
+          "readOnly": false
+        },
+        {
+          "sourceVolume": "tmp-front",
+          "containerPath": "/tmp",
+          "readOnly": false
+        }
+      ]
+    },
+    {
+      "name": "back",
+      "image": "123456789012.dkr.ecr.ap-northeast-1.amazonaws.com/webapp9m-back:perf-test",
+      "cpu": 1024,
+      "memory": 4096,
+      "essential": true,
+      "readonlyRootFilesystem": true,
+      "entryPoint": ["/usr/local/bin/efs-entrypoint.sh"],
+      "command": ["eap"],
+      "portMappings": [
+        {
+          "containerPort": 8180,
+          "protocol": "tcp"
+        }
+      ],
+      "environment": [
+        { "name": "Service_Name", "value": "intra-web" },
+        { "name": "Component_name", "value": "back" },
+        { "name": "ROLE", "value": "back" },
+        { "name": "PORT_OFFSET", "value": "100" },
+        { "name": "SERVER_CONFIG", "value": "standalone.xml" },
+        { "name": "ENABLE_PERF_METRICS", "value": "true" },
+        { "name": "PERF_METRICS_INTERVAL", "value": "10" },
+        { "name": "JBOSS_SERVER_OPTS", "value": "-Djboss.socket.binding.port-offset=100 -XX:ActiveProcessorCount=1" }
+      ],
+      "mountPoints": [
+        {
+          "sourceVolume": "efs-logs",
+          "containerPath": "/mnt/logs",
+          "readOnly": false
+        },
+        {
+          "sourceVolume": "tmp-back",
+          "containerPath": "/tmp",
+          "readOnly": false
+        }
+      ]
+    }
+  ]
+}

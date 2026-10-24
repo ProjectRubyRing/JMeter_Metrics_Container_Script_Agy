@@ -1,0 +1,14 @@
+# ==============================================================================
+# [4] -XX:ActiveProcessorCount Necessity & CFS Throttling Diagnosis
+# METRICS_LOG_PATH: /mnt/logs/front/logs/intra-web/mid/current/04_active_processor_diag.tsv
+# METRICS_REAL_PATH: /c/Users/taka_/Agy/JMeter_Metrics_Container_Script_Agy/tests/sample_output/mnt/logs/front/logs/intra-web/mid/current/04_active_processor_diag.tsv
+# CONTAINER_ROLE: front
+# COMPONENT_NAME: front
+# SERVICE_NAME: intra-web
+# TASK_LOG_ID: 20261024223849-perf
+# INTERVAL_SECONDS: 1
+# GENERATED_AT_JST: 2026-10-24 13:38:50
+# ==============================================================================
+Timestamp_JST	Container	Service	Host_Physical_CPUs	ECS_Task_CPU_Units	ECS_Container_CPU_Units	Task_Container_Count	Cgroup_Version	Cgroup_Quota_us	Cgroup_Period_us	Cgroup_Effective_vCPU	Cgroup_Weight_Shares	Explicit_ActiveProcessorCount_Flag	JVM_Recognized_Processors	ParallelGCThreads	ConcGCThreads	CICompilerCount	ForkJoin_Parallelism	Undertow_IO_Threads	Undertow_Worker_Threads	CFS_nr_periods	CFS_nr_throttled	Delta_Periods	Delta_Throttled	Throttle_Rate_Pct	CFS_throttled_ms	Delta_Throttled_ms	LoadAvg_1m	Recommended_ActiveProcessorCount	Necessity_Judgment	Diagnosis_Reason
+2026-10-24 13:38:51	front	intra-web	12	2048	768	4	v2	max	100000	0.75	100	2	2	2	1	2	1	4	32	0	0	0	0	0.00	0.0	0.0	3.66	1	OPTIMAL_OK	OpenJDK21が実効vCPU(0.75)と整合する2コアを認識しCFSスロットリング率0.0%で安定稼働中(現行設定で適正)
+2026-10-24 13:38:55	front	intra-web	12	2048	768	4	v2	max	100000	0.75	100	2	2	2	1	2	1	4	32	0	0	0	0	0.00	0.0	0.0	3.66	1	OPTIMAL_OK	OpenJDK21が実効vCPU(0.75)と整合する2コアを認識しCFSスロットリング率0.0%で安定稼働中(現行設定で適正)

@@ -1,0 +1,87 @@
+# ==============================================================================
+# [2] OpenJDK 21 jcmd (GC.heap_info / VM.native_memory / Compiler.codecache) & JFR Summary Log
+# METRICS_LOG_PATH: /mnt/logs/front/logs/inter-api/mid/current/02_jcmd_jfr_detail.log
+# METRICS_REAL_PATH: /c/Users/taka_/Agy/JMeter_Metrics_Container_Script_Agy/tests/sample_output/mnt/logs/front/logs/inter-api/mid/current/02_jcmd_jfr_detail.log
+# CONTAINER_ROLE: front
+# COMPONENT_NAME: front
+# SERVICE_NAME: inter-api
+# TASK_LOG_ID: 20261024223909-perf
+# INTERVAL_SECONDS: 1
+# GENERATED_AT_JST: 2026-10-24 13:39:10
+# ==============================================================================
+================================================================================
+[2026-10-24 13:39:11] PID=12345 jcmd & JFR Snapshot
+--- [GC.heap_info] ---
+12345:
+ garbage-first heap   total 2097152K, used 878592K [0x0000000780000000, 0x0000000800000000)
+  region size 1024K, 328 young (335872K), 24 survivors (24576K)
+ Metaspace       used 128450K, committed 135168K, reserved 1179648K
+  class space    used 14820K, committed 16384K, reserved 1048576K
+--- [VM.native_memory summary] ---
+12345:
+Native Memory Tracking:
+Total: reserved=3845120KB, committed=2412544KB
+-                 Java Heap (reserved=2097152KB, committed=2097152KB)
+                            (mmap: reserved=2097152KB, committed=2097152KB)
+-                     Class (reserved=1064960KB, committed=16384KB)
+-                    Thread (reserved=148480KB, committed=148480KB)
+                            (thread #142)
+-                      Code (reserved=253952KB, committed=68420KB)
+-                        GC (reserved=112640KB, committed=94208KB)
+--- [JFR.check] ---
+12345:
+Recording 1: name=perf-continuous maxsize=250.0MB maxage=2h (running)
+--- [jfr summary /c/Users/taka_/Agy/JMeter_Metrics_Container_Script_Agy/tests/sample_output/mnt/logs/front/logs/inter-api/mid/current/02_flight_recording.jfr] ---
+ Version: 2.1
+ Chunks: 1
+ Start: 2026-10-24 13:00:00 (UTC)
+ Duration: 30 s
+
+ Event Type                              Count  Size (bytes)
+=============================================================
+ jdk.ObjectAllocationSample               4210        134720
+ jdk.ExecutionSample                      1850         44400
+ jdk.G1GarbageCollection                    12           480
+ jdk.GCPhasePause                           48          1920
+ jdk.CPUInformation                          1           312
+ jdk.ContainerConfiguration                  1           256
+ jdk.ContainerCPUUsage                      30          1440
+ jdk.ContainerCPUThrottling                 30          1200
+================================================================================
+[2026-10-24 13:39:15] PID=12345 jcmd & JFR Snapshot
+--- [GC.heap_info] ---
+12345:
+ garbage-first heap   total 2097152K, used 878592K [0x0000000780000000, 0x0000000800000000)
+  region size 1024K, 328 young (335872K), 24 survivors (24576K)
+ Metaspace       used 128450K, committed 135168K, reserved 1179648K
+  class space    used 14820K, committed 16384K, reserved 1048576K
+--- [VM.native_memory summary] ---
+12345:
+Native Memory Tracking:
+Total: reserved=3845120KB, committed=2412544KB
+-                 Java Heap (reserved=2097152KB, committed=2097152KB)
+                            (mmap: reserved=2097152KB, committed=2097152KB)
+-                     Class (reserved=1064960KB, committed=16384KB)
+-                    Thread (reserved=148480KB, committed=148480KB)
+                            (thread #142)
+-                      Code (reserved=253952KB, committed=68420KB)
+-                        GC (reserved=112640KB, committed=94208KB)
+--- [JFR.check] ---
+12345:
+Recording 1: name=perf-continuous maxsize=250.0MB maxage=2h (running)
+--- [jfr summary /c/Users/taka_/Agy/JMeter_Metrics_Container_Script_Agy/tests/sample_output/mnt/logs/front/logs/inter-api/mid/current/02_flight_recording.jfr] ---
+ Version: 2.1
+ Chunks: 1
+ Start: 2026-10-24 13:00:00 (UTC)
+ Duration: 30 s
+
+ Event Type                              Count  Size (bytes)
+=============================================================
+ jdk.ObjectAllocationSample               4210        134720
+ jdk.ExecutionSample                      1850         44400
+ jdk.G1GarbageCollection                    12           480
+ jdk.GCPhasePause                           48          1920
+ jdk.CPUInformation                          1           312
+ jdk.ContainerConfiguration                  1           256
+ jdk.ContainerCPUUsage                      30          1440
+ jdk.ContainerCPUThrottling                 30          1200

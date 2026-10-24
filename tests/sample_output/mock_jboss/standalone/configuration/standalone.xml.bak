@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<server xmlns="urn:jboss:domain:20.0">
+    <subsystem xmlns="urn:jboss:domain:datasources:7.0">
+        <datasources>
+            <xa-datasource jndi-name="java:jboss/datasources/MySQLXADS" pool-name="MySQLXADS" enabled="true" statistics-enabled="true">
+                <xa-datasource-Class>com.mysql.cj.jdbc.MysqlXADataSource</xa-datasource-Class>
+            </xa-datasource>
+        </datasources>
+    </subsystem>
+    <subsystem xmlns="urn:jboss:domain:transactions:6.0">
+        <core-environment node-identifier="1"/ statistics-enabled="true"  >
+        <coordinator-environment statistics-enabled="true"/   >
+    </subsystem>
+    <subsystem xmlns="urn:jboss:domain:undertow:14.0" statistics-enabled="true">
+        <server name="default-server">
+            <http-listener name="default" socket-binding="http" statistics-enabled="true"/>
+        </server>
+    </subsystem>
+</server>

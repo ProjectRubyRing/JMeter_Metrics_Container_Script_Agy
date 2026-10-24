@@ -1,0 +1,14 @@
+# ==============================================================================
+# [3] UBI 9.8 top / ps / procfs Deep Process & Thread Statistics
+# METRICS_LOG_PATH: /mnt/logs/front/logs/intra-web/mid/current/03_process_thread_stats.tsv
+# METRICS_REAL_PATH: /c/Users/taka_/Agy/JMeter_Metrics_Container_Script_Agy/tests/sample_output/mnt/logs/front/logs/intra-web/mid/current/03_process_thread_stats.tsv
+# CONTAINER_ROLE: front
+# COMPONENT_NAME: front
+# SERVICE_NAME: intra-web
+# TASK_LOG_ID: 20261024223849-perf
+# INTERVAL_SECONDS: 1
+# GENERATED_AT_JST: 2026-10-24 13:38:50
+# ==============================================================================
+Timestamp_JST	Container	Service	PID	JVM_Threads_Total	Threads_Running_R	Threads_DiskSleep_D	Threads_Sleeping_S	Threads_Zombie_Z	Top1_Thread_TID	Top1_Thread_Name	Top1_Thread_CPU_Pct	Top1_Thread_State	Top1_Thread_WCHAN	Top2_Thread_Name	Top2_Thread_CPU_Pct	Open_FDs	Max_FDs_Limit	FD_Usage_Pct	Min_PageFaults	Maj_PageFaults	Voluntary_CtxtSw	NonVoluntary_CtxtSw	Delta_NonVol_CtxtSw	TCP_Established	TCP_CloseWait	TCP_TimeWait	TCP_SynRecv	TCP_ListenDrops	Status_Eval
+2026-10-24 13:38:51	front	intra-web	12345	5	2	0	3	0	12381	default_task-3	28.5	R	-	default_task-7	19.2	0	65536	0.0	4820	0	0	0	0	0	0	0	0	0	NORMAL
+2026-10-24 13:38:55	front	intra-web	12345	5	2	0	3	0	12381	default_task-3	28.5	R	-	default_task-7	19.2	0	65536	0.0	4820	0	0	0	0	0	0	0	0	0	NORMAL
